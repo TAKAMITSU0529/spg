@@ -86,17 +86,10 @@ body {
   color: var(--color-text);
 }
 
-.nav__logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-strong));
-  color: #3a2b18;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.nav__logo-image {
+  width: clamp(48px, 7vw, 68px);
+  height: auto;
+  display: block;
 }
 
 .nav__logo-text {
@@ -169,7 +162,7 @@ body {
 }
 
 .hero__content {
-  max-width: min(1200px, 92vw);
+  max-width: var(--container-width);
   width: 100%;
   margin: 0 auto;
   padding: 4rem 0 0;
