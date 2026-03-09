@@ -52,6 +52,7 @@ body {
     filter: blur(0);
     transform: scale(1);
   }
+
   100% {
     filter: blur(2px);
     transform: scale(1.02);
@@ -194,7 +195,7 @@ body {
   display: block;
 }
 
-.hero__title span + span {
+.hero__title span+span {
   margin-top: 0.25rem;
 }
 
@@ -298,9 +299,11 @@ body {
   0% {
     transform: translateY(0) scale(1);
   }
+
   50% {
     transform: translateY(-30px) scale(1.1);
   }
+
   100% {
     transform: translateY(0) scale(1);
   }
@@ -431,7 +434,7 @@ body {
   font-size: 1.2rem;
 }
 
-.card__title + .card__text {
+.card__title+.card__text {
   margin-top: 0.8rem;
 }
 
@@ -575,6 +578,38 @@ body {
   color: var(--color-gold-strong);
 }
 
+.company__photo {
+  position: relative;
+  margin: 2.2rem 0 0;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 22px 45px rgba(227, 169, 59, 0.2);
+}
+
+.company__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(247, 209, 127, 0.08), rgba(108, 123, 255, 0.06));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.company__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s ease;
+}
+
+.company__frame:hover .company__photo img,
+.company__frame:focus-within .company__photo img {
+  transform: scale(1.06);
+}
+
 .company__frame svg {
   width: 100%;
   display: block;
@@ -583,10 +618,12 @@ body {
 }
 
 @keyframes blobMorph {
+
   0%,
   100% {
     transform: rotate(0deg) scale(1);
   }
+
   50% {
     transform: rotate(6deg) scale(1.05);
   }
@@ -595,7 +632,14 @@ body {
 .contact__grid {
   display: grid;
   gap: 2.5rem;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1025px) {
+  .contact__grid {
+    /* Crafting Delight（右側のカード）の右端位置に揃えるため、幅を少し絞る */
+    max-width: calc(100% - 4.5rem);
+  }
 }
 
 .contact__form {
